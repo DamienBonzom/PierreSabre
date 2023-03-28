@@ -20,7 +20,7 @@ public class HistoireTP4 {
 		marco1.recevoir(15);
 		marco1.boire();
 		System.out.println("-----------");
-		Yakuza yaku = new Yakuza("Yaku Le Noir", "whisky", 30, "youtenclan");
+		Yakuza yaku = new Yakuza("Yaku Le Noir", "whisky", 30, "Warsong");
 		Commercant marco2 = new Commercant("Marco", 15);
 		yaku.direBonjour();
 		yaku.extorquer(marco2);
