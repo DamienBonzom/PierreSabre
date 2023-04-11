@@ -32,7 +32,7 @@ public class HistoireTP4 {
 		
 		System.out.println("-----------");
 		
-		Ronin roro1 = new Ronin("Roro", "shochu", 60);
+		Ronin roro1 = new Ronin("Roro", "shochu", 54);
 		Commercant marco3 = new Commercant("Marco", 15);
 		roro1.direBonjour();
 		roro1.donner(marco3);
