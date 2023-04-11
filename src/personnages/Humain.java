@@ -5,7 +5,7 @@ public class Humain {
 	private String favDrink;
 	protected int money;
 	protected int nbConnaissance = 0;
-	private int max_connaissance = 30;
+	private int max_connaissance = 3;
 	protected Humain[] memoire = new Humain[max_connaissance];
 	
 	public Humain(String nom, String boisson, int argent) {
@@ -56,11 +56,16 @@ public class Humain {
 	
 	private void memoriser(Humain autreHumain) {
 		if(nbConnaissance == max_connaissance) {
-			nbConnaissance = 0; // ici on met l'indice de la plus ancienne connaissance à 0
+			for(int i = 0; i < nbConnaissance-1; i++) {
+				memoire[i] = memoire[i+1];
+			}
+			memoire[nbConnaissance-1] = autreHumain;
+		}else {
+			memoire[nbConnaissance] = autreHumain;
+			nbConnaissance++;			
 		}
 		
-		memoire[nbConnaissance] = autreHumain;
-		nbConnaissance++;
+
 		
 	}
 	
@@ -73,10 +78,8 @@ public class Humain {
 	
 	public void listerConnaissance() {
 		String texte = "";
-		for(int i = 0; i < max_connaissance ; i++) {
-			if(memoire[i] != null) {
-				texte += memoire[i].getName() + ", ";
-			}
+		for(int i = 0; i < nbConnaissance ; i++) {
+			texte += memoire[i].getName() + ", ";
 		}
 		parler("Je connais beaucoup de monde dont : " + texte.substring(0, texte.length() - 2));
 	}
